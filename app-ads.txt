@@ -145,3 +145,5 @@ sharethrough.com, 5791, RESELLER, 060d053dcf45cbf3
 pubmatic.com, 156500, RESELLER, 5d62403b186f2ace
 triplelift.com, 14900, RESELLER, 6c33edb13117fd86
 triplelift.com, 14901, RESELLER, 6c33edb13117fd86
+smartadserver.com, 4194-OB, RESELLER, 060d053dcf45cbf3
+smartadserver.com, 4194, RESELLER, 060d053dcf45cbf3
