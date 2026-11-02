@@ -1,0 +1,15 @@
+# Permit ad ownership verification crawlers to read app-ads.txt
+User-agent: Google-adstxt
+Allow: /app-ads.txt
+Disallow:
+
+User-agent: Mediapartners-Google
+Allow: /app-ads.txt
+Disallow:
+
+User-agent: Googlebot
+Allow: /app-ads.txt
+Disallow:
+
+User-agent: *
+Allow: /
