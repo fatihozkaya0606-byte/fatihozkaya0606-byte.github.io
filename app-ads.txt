@@ -300,3 +300,4 @@ bold-win.com, 1145, RESELLER, 71746737d0bab951
 conversantmedia.com, 100269, RESELLER, 03113cd04947736d
 rubiconproject.com, 27714, RESELLER, 0bfd66d529a55807
 # Published for AdMob/Yandex app-ads.txt crawler verification; seller records above remain unchanged.
+vungle.com, 6ae228f893f426c33e799f24, DIRECT, c107d686becd2d77
