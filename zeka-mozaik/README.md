@@ -1,11 +1,9 @@
-# Zeka Mozaik
+# Train Your Brain! • Renkli 3D Şekiller
 
-Telefon ekranına uyarlanmış, renkli geometrik parçaları uygun hedefe sürükleyerek birleştirme oyunu. Çevrimdışı da oynanabilir.
+Fotoğraftaki renkli üçgen yüzeyli parça-yerleştirme bulmacasından esinlenen bağımsız mobil oyun. İlk bölümde sarı kuş kanadını yerine sürükleyerek şekli tamamlarsınız. Sonraki bölümlerde kuş, kelebek, roket, balık, ev, tilki, elmas ve çiçek geometrileri; giderek daha çok parça, ilerleme kaydı, döndürme, ipucu, titreşim ve ses bulunur.
 
-## Oyna
-https://fatihozkaya0606-byte.github.io/zeka-mozaik/
+Oyna: https://fatihozkaya0606-byte.github.io/zeka-mozaik/
 
-## Android APK
-https://fatihozkaya0606-byte.github.io/zeka-mozaik/ZekaMozaik.apk
+APK: https://fatihozkaya0606-byte.github.io/zeka-mozaik/ZekaMozaik.apk
 
-Android Studio: JDK 17, Android SDK 35, Gradle 8.10.2. Debug APK: `gradle :app:assembleDebug`. GitHub Actions, APK'yı doğrudan indirilebilir hale getirir.
+APK GitHub Actions ile derlenir, dosya adı ve paket kimliği değişmez. Üretilen APK debug imzalı test sürümüdür, Google Play üretim yayını için uygun imzalı AAB ayrıca hazırlanmalıdır.
