@@ -24,7 +24,17 @@ jobs:
         with:
           gradle-version: '8.10.2'
       - name: Android SDK 35
-        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+        run: |
+          export ANDROID_HOME="${ANDROID_HOME:-/usr/local/lib/android/sdk}"
+          echo "ANDROID_HOME=$ANDROID_HOME" >> "$GITHUB_ENV"
+          SDKMANAGER=$(find "$ANDROID_HOME" -type f -name sdkmanager | head -n 1)
+          if [ -n "$SDKMANAGER" ]; then
+            yes | "$SDKMANAGER" --licenses >/dev/null 2>&1 || true
+            "$SDKMANAGER" 'platforms;android-35' 'build-tools;35.0.0'
+          else
+            echo "SDK commandline tools not found; use preinstalled SDK"
+            ls -la "$ANDROID_HOME/platforms" || true
+          fi
       - name: Build APK
         run: gradle --no-daemon :app:assembleDebug
       - name: Upload APK artifact
