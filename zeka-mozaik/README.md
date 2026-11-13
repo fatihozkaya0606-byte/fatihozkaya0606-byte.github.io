@@ -1,20 +1,18 @@
-# Train Your Brain! — Dünya Puzzle V3
+# Train Your Brain — Dünya Puzzle V4
 
-Fotoğraftaki renkli üçgen parça birleştirme tarzında bağımsız öğrenme oyunu.
+889 bölümlü, çok kategorili puzzle + bilgi sorusu oyunu.
 
-**889 bölüm / 10 kategori.**
-- 195 ülke bayrağına ait ülkeyi bulma
-- 195 başkentin ait olduğu ülkeyi bulma
-- 195 ülkenin başkentini bulma
-- 95 futbol takımının ülkesini bulma
-- 32 meyve-sebze, 50 hayvan, 50 eşya, 25 taşıt, 32 yemek ve 20 dünya yapısı
+## Görseller
+- **195 ülke bayrağı:** flag-icons projesinin MIT lisanslı 4:3 SVG bayrak çizimleri. Lisans ve atıf: `flags/LICENSE.txt` (https://github.com/lipis/flag-icons).
+- **95 takım forması:** Her takım için *ayrı* kulübün bilinen geleneksel renk ve desenlerine dayanan forma şekli. Resmî 2026/27 lisanslı kulüp fotoğrafı, arması veya sponsoru **değildir**. Takım adı puzzle yüzeyinden kaldırıldı; bilgi sorusu sürprizi korunuyor.
+- Diğer kategorilerde mevcut emoji illüstrasyonlar kullanılır.
 
-Her bölümde önce puzzle'ı birleştir; ardından altta açılan 4 seçenekli soruyu doğru yanıtla. Yanlış cevap bölüm geçirmez. Zorluk 4, 6, 8, 12, 16, 18, 24 ve 32 üçgen parçaya kadar yükselir. İpucu, döndürme, ses, puan ve kategoriye özel cihaz kaydı mevcuttur.
+## Zorluk
+1–5: 12 parça; 6–15: 16 parça; 16–35: 18 parça; 36–75: 24 parça; 76–150: 30 parça; sonrasında: 30–32 parça. Döndürme ve rastgele dağıtma devam eder. Parçalar kompakt tepsiye yerleşir.
 
-Bayraklar cihazın emoji desteğiyle görüntülenir; futbol arması çizimleri resmî kulüp logosu yerine özgün grafiklerdir. Uygulama çevrimdışı çalışır.
+Her puzzle tamamlandığında 4 cevap seçeneği açılır. Doğru cevap olmadan sonraki bölüme geçilmez. İlerleme ve puanlar cihazda saklanır.
 
-**Oyna:** https://fatihozkaya0606-byte.github.io/zeka-mozaik/
-
-**APK (test):** https://fatihozkaya0606-byte.github.io/zeka-mozaik/ZekaMozaik.apk
-
-GitHub Actions workflow `.github/workflows/zeka-mozaik-apk.yml` Android debug APK'yı otomatik derler ve GitHub Pages dizinine ekler. Google Play yayımlamak için release imzalı AAB gerekir.
+## Linkler
+- Oyun: https://fatihozkaya0606-byte.github.io/zeka-mozaik/
+- Android test APK: https://fatihozkaya0606-byte.github.io/zeka-mozaik/ZekaMozaik.apk
+- Android APK GitHub Actions ile debug imzalı derlenir; Play Console için release imzalı AAB gereklidir.

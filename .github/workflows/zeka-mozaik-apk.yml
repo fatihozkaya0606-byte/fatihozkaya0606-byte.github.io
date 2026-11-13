@@ -35,6 +35,32 @@ jobs:
             echo "SDK commandline tools not found; use preinstalled SDK"
             ls -la "$ANDROID_HOME/platforms" || true
           fi
+      - name: Bundle 195 licensed SVG country flags
+        run: |
+          python3 - <<'PY'
+          import io, re, pathlib, zipfile, urllib.request
+          html = pathlib.Path('index.html').read_text(encoding='utf-8')
+          region = html.split('const COUNTRIES=',1)[1].split(';',1)[0]
+          codes = sorted({c.lower() for c in re.findall(r'\["([A-Z]{2})",', region)})
+          assert len(codes) == 195, ('Expected 195 countries',len(codes))
+          archive = 'https://github.com/lipis/flag-icons/archive/refs/tags/v7.6.0.zip'
+          with urllib.request.urlopen(archive,timeout=80) as response:
+              z = zipfile.ZipFile(io.BytesIO(response.read()))
+          names = {name.rsplit('/',1)[-1]:name for name in z.namelist() if '/flags/4x3/' in name and name.endswith('.svg')}
+          for code in codes:
+              file_name=code+'.svg'
+              if file_name not in names: raise RuntimeError('Missing flag for '+code)
+              data = z.read(names[file_name])
+              assert b'<svg' in data[:1000], (code,'Bad SVG')
+              for directory in (pathlib.Path('flags'),pathlib.Path('app/src/main/assets/flags')):
+                  directory.mkdir(parents=True,exist_ok=True)
+                  (directory/file_name).write_bytes(data)
+          license_file = next((n for n in z.namelist() if n.endswith('/LICENSE') or n.endswith('/LICENSE.md')),None)
+          assert license_file
+          for directory in (pathlib.Path('flags'),pathlib.Path('app/src/main/assets/flags')):
+              (directory/'LICENSE.txt').write_bytes(z.read(license_file))
+          print('Bundled',len(codes),'MIT-licensed flag SVG files')
+          PY
       - name: Build APK
         run: gradle --no-daemon :app:assembleDebug
       - name: Upload APK artifact
@@ -49,6 +75,6 @@ jobs:
           cd ..
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add zeka-mozaik/ZekaMozaik.apk
+          git add zeka-mozaik/ZekaMozaik.apk zeka-mozaik/flags
           git commit -m 'Build Zeka Mozaik debug APK [skip ci]' || exit 0
           git push
